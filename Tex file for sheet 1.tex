@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,enumerate}
+\usepackage{amsmath}
+
+\setlength{\topmargin}{-1in}
+\addtolength{\topmargin}{5ex}
+\setlength{\headsep}{8ex}
+\setlength{\headheight}{1.5ex}
+\setlength{\textheight}{22cm}
+\setlength{\textwidth}{16cm}
+\setlength{\oddsidemargin}{-1in}
+\addtolength{\oddsidemargin}{2.5cm}
+\setlength{\evensidemargin}{2.5cm}
+\setlength{\footskip}{1.5cm}
+
+\newtheorem{qu}{Question }
+
+
+\newcommand{\id}{{\mathbf 1}}
+\newcommand{\A}{{\mathcal A}}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\calX}{{\mathcal X}}
+
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\E}{{\mathbb E}}
+\renewcommand{\P}{{\mathbb P}}
+
+
+\title{\sc   Problem sheet 1,  Information Theory, MT 2022\\\
+\medskip
+{\Large  Designed for the first tutorial class} }
+\date{}
+\author{}
+\begin{document}
+
+\maketitle
+
+
+
+\begin{qu}\label{chmsr}
+\rm
+We are given a deck of $n$ cards in order $1,2, \cdots, n$. Then a randomly chosen card is removed and placed at a random position in the deck. What is the entropy of the resulting deck of card?
+\end{qu}
+
+
+\bigskip
+\bigskip
+
+
+\begin{qu}\label{polling}\rm
+(Polling inequalities)
+Let $a\ge 0, b\ge 0$ are given with $a+b>0$. Show that 
+$$-(a+b)\log(a+b)\le -a\log(a)-b\log(b)\le -(a+b)\log(\frac{a+b}{2})$$
+and that the first inequality becomes an equality iff $ab=0$, the second inequality 
+becomes an equality iff $a=b$. 
+\end{qu}
+
+
+\begin{qu}\rm
+Let $X,Y,Z$ be discrete  random variables.  Prove or provide a counterexample to the following statements:
+\begin{itemize}
+\item [(a)] $H(X)=H(−42X)$;
+\item [(b)] $H(X|Y)\ge  H(X|Y,Z)$;
+\item [ (c)]  $H(X,Y)=H(X)+H(Y)$.
+\end{itemize}
+\end{qu}
+
+\bigskip
+\bigskip
+
+
+\begin{qu}\rm
+Does there exist a discrete random variable $X$ with a distribution such that $H(X) =+\infty$? If so, describe it as explicitly as possible.
+\end{qu}
+
+\bigskip
+\bigskip
+
+
+
+\begin{qu}
+\rm
+Let $\calX$ be a finite set, $f$ a real-valued function $f: \calX\mapsto \R$ and fix $\alpha\in \R$. 
+We want to maximise the entropy $H (X)$ of a random variable $X$ taking values in $\calX$ subject to the constraint
+\begin{equation}\label{constraint}
+\E[f (X)] \le \alpha.
+\end{equation}
+Denote by $U$  a uniformly distributed random variable over $\calX$. Prove the following optimal solutions for the maximisation.
+\begin{itemize}
+\item [(a)] If $\alpha\in [\E[f(U)], \; \max_{x\in\calX} f (x)\,]$, then the entropy is maximised subject to (\ref{constraint}) by the uniformly distributed random variable $U$.
+
+\item [(b)]  If f is non-constant and  $\alpha\in [\min_{x\in\calX} f(x),  \; \E[f (U)]\, ]$, then the entropy 
+is maximised subject to (\ref{constraint}) by the random variable $Z$ given by
+$$P(Z = x) =\frac{e^{\lambda f(x)}}{\sum_{y\in\calX} e^{\lambda f(y)}} \qquad \mbox{ for } x\in\calX.$$
+where $\lambda < 0$ is chosen such that $\E[ f (Z)] = \alpha$.
+
+\item [(c)] (Optional) Prove that under the assumptions of (b), the choice for $\lambda$ is unique and we have
+$\lambda < 0$.
+\end{itemize}
+\end{qu}
+
+
+\bigskip
+\bigskip
+
+
+\begin{qu}\rm
+(A revision on  strong law of large numbers (SLLN) in probability theory, please take this question as a reference)
+Let $X$ be a real-valued random variable.
+\begin{itemize}
+\item [(a)] Assume additionally that $X$ is non-negative. Show that for every $x > 0$, we have
+$$\P(X\ge x)\le \frac{\E[X]}{x}.$$
+\item [(b)] Let $X$ be a random variable of mean $\mu$ and variance $\sigma^2$. Show that 
+$$\P(|X-\mu|>\varepsilon)\le \frac{\sigma^2}{\epsilon^2}.$$
+\item [(c)] Let $(X_n)_{n\ge 1}$ be a sequence of i.i.d  random variables with mean $\mu$ and variance $\sigma^2$. Show that $\frac{1}{m}\sum_{n=1}^m X_n$ converges to $\mu$ in probability, i.,e., for every $\varepsilon > 0$, 
+$$\lim_{m\rightarrow +\infty} \P\left(\left|\frac{1}{m}\sum_{n=1}^m X_n-\mu\right|>\epsilon\right)=0.$$
+{\tt This is a weak version of SLLN. It can be strengthen by Borel-Cantelli lemma to the often-used version: $\P(\lim_{m\rightarrow +\infty} \frac{1}{m}\sum_{n=1}^m X_n=\mu)=1$. }
+
+\end{itemize}
+
+\end{qu}
+
+\bigskip
+\bigskip
+
+\begin{qu}(Optional) \rm
+Partition the interval $[0,1]$ into $n$ disjoint sub-intervals of length $p_1,\cdots, p_n$.  Let $X_1,X_2,\cdots$ be i.i.d. random variables, uniformly distributed on $[0,1]$, and $Z_m(i)$ be the number of the $X_1,\cdots,X_m$ 
+that lie in the $i^{th}$ interval of the partition. Show that the random variables
+$$R_m =\Pi_{i=1}^n  p_i^{Z_m (i)} \mbox{ satisfy } \frac{1}{m}\log( R_m) 
+\stackrel{m\rightarrow+\infty}{\longrightarrow} \sum_{i=1}^n p_i\log(p_i) \mbox{  with probability } 1.
+$$
+\end{qu}
+
+\end{document}
+  
+  

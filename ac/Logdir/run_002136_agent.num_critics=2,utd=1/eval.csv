@@ -1,0 +1,3 @@
+episode,episode_length,episode_reward,episode_success,eval_total_time,frame,step
+0.0,100.0,0.12,0.0,88.38804316520691,0,0.0
+20.0,100.0,0.45,0.02,2751.937667608261,2000,1000.0

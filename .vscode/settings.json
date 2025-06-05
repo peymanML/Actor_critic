@@ -1,0 +1,16 @@
+{
+    // Pin the interpreter the project must use
+    "python.defaultInterpreterPath": "/mnt/data/miniconda3/envs/cs224r/bin/python",
+  
+    // Stop VS Code from auto-activating a second conda env in each terminal
+    "python.terminal.activateEnvironment": false,
+  
+    // Re-format with Black every time you save
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+  
+    // Use Ruff as the linter, silence pylint pop-ups
+    "python.linting.ruffEnabled": true,
+    "python.linting.pylintEnabled": false
+  }
+  
